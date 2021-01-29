@@ -6,6 +6,8 @@ import Nav from './componets/Nav';
 import About from './componets/About';
 // linking gallery component
 import Gallery from "./components/Gallery";
+// linking contact form
+import ContactForm from "./components/Contact";
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
       ></Nav>
       <main>
         <div>
+          <ContactForm></ContactForm>
           <Gallery currentCategory={currentCategory}></Gallery>
           <About></About>
         </div>
