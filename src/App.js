@@ -8,6 +8,8 @@ import About from './componets/About';
 import Gallery from "./components/Gallery";
 // linking contact form
 import ContactForm from "./components/Contact";
+const [contactSelected, setContactSelected] = useState(false);
+
 
 
 function App() {
@@ -26,16 +28,23 @@ function App() {
 
   return (
     <div>
-      <Nav
-        categories={categories}
-        setCurrentCategory={setCurrentCategory}
-        currentCategory={currentCategory}
-      ></Nav>
+          <Nav
+            categories={categories}
+            setCurrentCategory={setCurrentCategory}
+            currentCategory={currentCategory}
+            contactSelected={contactSelected}
+            setContactSelected={setContactSelected}
+          ></Nav>
       <main>
         <div>
-          <ContactForm></ContactForm>
-          <Gallery currentCategory={currentCategory}></Gallery>
-          <About></About>
+        {!contactSelected ? (
+            <>
+              <Gallery currentCategory={currentCategory}></Gallery>
+              <About></About>
+            </>
+          ) : (
+              <ContactForm></ContactForm>
+        )}
         </div>
       </main>
     </div>
